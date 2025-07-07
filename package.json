@@ -1,0 +1,23 @@
+{
+  "name": "api-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run __test__"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.0.3",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "dotenv": "^17.0.1",
+    "node-fetch": "^3.3.2",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
