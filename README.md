@@ -43,7 +43,7 @@ This endpoint is used to retrieve the list of clinicians a user has consented to
 - **Response**:
   - JSON array of clinician usernames and access expiration dates: 
   ```json
-  [["clinician1@domain.com", experationDate], ["clinician2@domain.com", experationDate]]
+  [["clinician1@domain.com", "024-11-01T12:00:00Z"], ["clinician2@domain.com", "024-11-01T12:00:00Z"]]
   ```
 
 ## How to Run the Week 2 Tests
