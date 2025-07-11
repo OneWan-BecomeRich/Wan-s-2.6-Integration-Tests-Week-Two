@@ -10,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '../');
 dotenv.config({ path: path.resolve(rootDir, '.env') });
+console.log('API_URL from env:', process.env.API_URL);
 
 // Check if API_URL environment variable exists
 if (!process.env.API_URL) {
