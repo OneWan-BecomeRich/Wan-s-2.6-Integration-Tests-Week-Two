@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "Week 1 - should save step data from an IoT device",
+      "setup": "",
+      "run": "npm test __test__/week1.test.js -- -t 'should save step data from an IoT device'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 30
+    },
+    {
+      "name": "Week 1 - should calculate a risk score",
+      "setup": "",
+      "run": "npm test __test__/week1.test.js -- -t 'should calculate a risk score'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 30
+    },
+    {
+      "name": "Week 2 - should allow users to update their consent",
+      "setup": "",
+      "run": "npm test __test__/week2.test.js -- -t 'should allow users to update their consent'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 35
+    },
+    {
+      "name": "Week 2 - should allow user to get their consent status",
+      "setup": "",
+      "run": "npm test __test__/week2.test.js -- -t 'should allow user to get their consent status'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 35
+    },
+    {
+      "name": "Week 2 - should allow users to add a clinician",
+      "setup": "",
+      "run": "npm test __test__/week2.test.js -- -t 'should allow users to add a clinician'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 35
+    },
+    {
+      "name": "Week 2 - should return an array of clinicians for the user",
+      "setup": "",
+      "run": "npm test __test__/week2.test.js -- -t 'should return an array of clinicians for the user'",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 30,
+      "points": 35
+    }
+  ]
+}
