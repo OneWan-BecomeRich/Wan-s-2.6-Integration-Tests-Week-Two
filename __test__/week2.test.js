@@ -41,7 +41,8 @@ describe('Consented Clinicians Endpoints', () => {
         });
         expect(res.status).toBe(200);
         const data = await res.json();
-        expect(data).toContain('physician@stedi.com');
+
+        expect(JSON.stringify(data)).toContain('physician@stedi.com');
     })
 });
 

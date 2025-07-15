@@ -1,10 +1,12 @@
-# API Migration Assignment
+# Update your API to track Consent
 
 ## What You Will Build
 
-Hello future developers! In this assignment, you will extend your API to include **user consent management** features while continuing to work with the older system.
+Hello future developers! In this assignment, you will extend your team's API to include **user consent management**.
 
-This week, your new API will not only pass information between the user and the old API — it will also help manage **data sharing consent** and **clinician access** preferences.
+It will also help manage **data sharing consent** and **clinician access** preferences. You will need to decide on a 
+database to use for this, and your approach for example will you use Prisma for an ORM? Will you migrate the existing 
+pass-through endpoints from the legacy API to your own database, or keep them as pass-through to the legacy API?
 
 ## New Features for Week 2
 
@@ -26,8 +28,8 @@ This endpoint is used to check user consent status.
 - **Response**: `"true"` or `"false"` as plain text
 
 ### 3. Add a Consented Clinician
-Each user will have a list of clinicians they consent to share their data with. This endpoint is used when a user wants 
-to share their data with a new clinician. Clinician access should be time-limited. Store the clinician username along 
+Each user will have a list of clinicians they consent to share their data with. This endpoint is used when a user wants
+to share their data with a new clinician. Clinician access should be time-limited. Store the clinician username along
 with the expiration date of their access, which in this case, will be one year from when access was granted.
 - **Endpoint**: `/consentedClinicians/:customer`
 - **Method**: `PATCH`
@@ -41,9 +43,18 @@ This endpoint is used to retrieve the list of clinicians a user has consented to
 - **Method**: `GET`
 - **Headers**: `suresteps.session.token: <token>`
 - **Response**:
-  - JSON array of clinician usernames and access expiration dates: 
+  - JSON array of clinician usernames and access expiration dates:
   ```json
-  [["clinician1@domain.com", "024-11-01T12:00:00Z"], ["clinician2@domain.com", "024-11-01T12:00:00Z"]]
+  [
+    {
+        "clinicianUsername": "physician1@stedi.com",
+        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
+    },
+    {
+        "clinicianUsername": "physician2@stedi.com",
+        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
+    }
+  ]
   ```
 
 ## How to Run the Week 2 Tests
