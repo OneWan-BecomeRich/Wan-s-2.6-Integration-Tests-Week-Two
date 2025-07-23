@@ -49,16 +49,16 @@ This endpoint is used to retrieve the list of clinicians a user has consented to
   [
     {
         "clinicianUsername": "physician1@stedi.com",
-        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
+        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
     },
     {
         "clinicianUsername": "physician2@stedi.com",
-        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
+        "consentExpirationDate": "Jul 15, 2026, 12:00:00 AM"
     }
   ]
   ```
 
-## How to Run the Week 2 Tests
+## How to Run the Tests
 
 Make sure your `.env` file is correctly set:
 
@@ -66,17 +66,33 @@ Make sure your `.env` file is correctly set:
 API_URL=https://your-vercel-domain.vercel.app
 ```
 
-Then, run the tests:
+### Available Test Commands
 
 ```bash
-  npm test
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage report
+npm run test:coverage
+
+# Run specific test suites
+npm run test:week1          # Week 1 tests only
+npm run test:week2          # Week 2 tests only
+npm run test:integration    # Integration tests only
 ```
 
-If you only want to run Week 2 tests:
+### Test Structure
 
-```bash
-  vitest run __test__/week2.test.js
-```
+- `__test__/week1.test.js` - Week 1 API endpoints (user creation, step data, risk score)
+- `__test__/week2.test.js` - Week 2 consent management endpoints
+- `__test__/integration_tests/IVR.test.js` - Additional integration tests
+- `__test__/setup.js` - Test setup and configuration
 
 ---
 
@@ -92,11 +108,35 @@ You still need to support:
 
 ---
 
+## Development Tools
+
+This project includes several development tools to improve code quality:
+
+- **ESLint** - Code linting and style enforcement
+- **Prettier** - Code formatting
+- **Vitest UI** - Interactive test runner
+- **Coverage Reports** - Test coverage analysis
+
+### Code Quality Commands
+
+```bash
+# Format code with Prettier
+npx prettier --write .
+
+# Lint code with ESLint
+npx eslint __test__/
+
+# Fix ESLint issues automatically
+npx eslint __test__/ --fix
+```
+
+---
+
 ## Tips for Week 2
 
 - Return proper status codes (`401`, `403`, `500`) for error handling.
 - Use `try/catch` blocks to gracefully handle backend or logic failures.
-- Store clinician consents as a list under the user’s record (see test expectations).
+- Store clinician consents as a list under the user's record (see test expectations).
 - Use tools like Postman to test your API before running the tests.
 
 You're building secure, user-focused data-sharing features — keep it clean and robust.

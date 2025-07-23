@@ -9,7 +9,7 @@ describe('/consent/:customer endpoints', () => {
     it('should allow users to update their consent', async () => {
         const res = await fetch(`${API_URL}/consent/${testData.email}`, {
             method: 'PATCH',
-            headers: { 'suresteps.session.token': token },
+            headers: { 'suresteps-session-token': token },
             body: 'true'
         });
         expect(res.status).toBe(200);
@@ -17,7 +17,7 @@ describe('/consent/:customer endpoints', () => {
 
     it('should allow user to get their consent status', async () => {
         const res = await fetch(`${API_URL}/consent/${testData.email}`, {
-            headers: { 'suresteps.session.token': token }
+            headers: { 'suresteps-session-token': token }
         });
         expect(res.status).toBe(200);
         const data = await res.text();
@@ -29,7 +29,7 @@ describe('Consented Clinicians Endpoints', () => {
     it('should allow users to add a clinician', async () => {
         const res = await fetch(`${API_URL}/consentedClinicians/${testData.email}`, {
             method: 'PATCH',
-            headers: { 'suresteps.session.token': token },
+            headers: { 'suresteps-session-token': token },
             body: 'physician@stedi.com'
         });
         expect(res.status).toBe(200);
@@ -37,7 +37,7 @@ describe('Consented Clinicians Endpoints', () => {
 
     it('should return an array of clinicians for the user', async () => {
         const res = await fetch(`${API_URL}/consentedClinicians/${testData.email}`, {
-            headers: { 'suresteps.session.token': token }
+            headers: { 'suresteps-session-token': token }
         });
         expect(res.status).toBe(200);
         const data = await res.json();
