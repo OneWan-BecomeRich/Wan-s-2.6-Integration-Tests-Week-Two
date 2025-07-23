@@ -9,7 +9,15 @@
     "test:coverage": "vitest run --coverage __test__",
     "test:integration": "vitest run __test__/integration_tests",
     "test:week1": "vitest run __test__/week1.test.js",
-    "test:week2": "vitest run __test__/week2.test.js"
+    "test:week2": "vitest run __test__/week2.test.js",
+    "backend:install": "cd backend && npm install",
+    "backend:start": "cd backend && npm start",
+    "backend:dev": "cd backend && npm run dev",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:test": "docker-compose run --rm tests",
+    "dev": "concurrently \"npm run backend:dev\" \"npm run test:watch\""
   },
   "keywords": ["api", "testing", "integration", "vitest"],
   "author": "OneWan-BecomeRich",
@@ -22,7 +30,8 @@
     "@vitest/ui": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^8.57.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "concurrently": "^8.2.2"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",

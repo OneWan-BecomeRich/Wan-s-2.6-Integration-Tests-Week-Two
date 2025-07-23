@@ -3,10 +3,12 @@ import fetch from 'node-fetch';
 import { testData, getAPIUrl, getToken } from './setup.js';
 
 const API_URL = getAPIUrl();
-const token = await getToken(API_URL);
+let token = null;
 
 beforeAll(async () => {
     await createUser();
+    token = await getToken(API_URL);
+    console.info('Session token: ', token);
     await createCustomer();
 });
 
