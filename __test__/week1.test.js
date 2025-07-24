@@ -25,7 +25,7 @@ describe('Backend Handling of IoT Device Data', () => {
         };
         const response = await fetch(`${API_URL}/rapidsteptest`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'suresteps.session.token': token },
+            headers: { 'Content-Type': 'application/json', 'suresteps-session-token': token },
             body: JSON.stringify(mockData),
         });
         const data = await response.text();
@@ -44,7 +44,7 @@ describe('Backend Handling of IoT Device Data', () => {
         // Get the risk score
         const response = await fetch(`${API_URL}/riskscore/${testData.email}`, {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'suresteps.session.token': token },
+            headers: { 'Content-Type': 'application/json', 'suresteps-session-token': token },
         });
         const data = await response.json();
         expect(response.status).toBe(200);
@@ -101,7 +101,7 @@ const createCustomer = async () => {
     try {
         const response = await fetch(`${API_URL}/customer`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'suresteps.session.token': token },
+            headers: { 'Content-Type': 'application/json', 'suresteps-session-token': token },
             body: JSON.stringify(payload),
         });
         if (response.status !== 200 && response.status !== 409)
@@ -127,7 +127,7 @@ const save30Steps = async (time) => {
     // send a POST request to save step data
     return await fetch(`${API_URL}/rapidsteptest`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/text', 'suresteps.session.token': token },
+        headers: { 'Content-Type': 'application/text', 'suresteps-session-token': token },
         body: JSON.stringify(payload),
     });
 };
