@@ -169,7 +169,8 @@ app.get('/riskscore/:email', (req, res) => {
   });
   
   // Simple risk calculation: more steps = lower risk
-  const riskScore = totalSteps > 0 ? Math.max(1, Math.floor(100 - (totalSteps / 10))) : 50;
+  // Ensure minimum score of 1 and maximum of 100
+  const riskScore = totalSteps > 0 ? Math.max(1, Math.min(100, Math.floor(100 - (totalSteps / 10)))) : 50;
   
   res.status(200).json({ score: riskScore });
 });
